@@ -1,4 +1,4 @@
-# Strong-Spirits
+# Running-mate
 
 # 요구사항
 - 회원
