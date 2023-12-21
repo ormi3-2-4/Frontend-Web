@@ -1,6 +1,13 @@
 # Running-mate
+- 달리기, 자전거 운동을 기록하고 공유하는 서비스입니다.
+- 운동코스를 추천하고 운동용품 정보를 추천하는 커뮤니티
 
-# 요구사항
+## 목차
+- [1.요구사항](#요구사항)
+- [2.기술 및 개발환경](#기술-및-개발환경)
+---
+
+## 요구사항
 - 회원가입, 프로필페이지
 - 운동 시작
   - 목표설정 : 거리, 페이스, 목적지
@@ -8,11 +15,10 @@
   - 지도에 내 위치 표시
   - 운동 진행 시간 표시
   - 현재 페이스
-  - 일시정지, 재개, 정지(완료) 버튼
+  - 인증샷
 - 운동 기록지
   - 운동 데이터 통계 (거리, 시간, 페이스)
   - 지도에 내가 달린 거리 표시
-  - km당 페이스 차트 표시(?)
 - 운동 History (list)
 - 커뮤니티
   - 운동기록 공유
@@ -21,7 +27,9 @@
 - 달리기 코스
   - 코스 추천 작성
 
-# 기술 및 개발환경
+---
+
+## 기술 및 개발환경
 ### Backend
 <div>
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
@@ -41,11 +49,15 @@
     <img src="https://img.shields.io/badge/Amazone_S3-569A31?style=for-the-badge&logo=AmazoneS3&logoColor=white">
 </div>
 
-### IDE
+### IDE & Cooperation
 <div>
     <img src="https://img.shields.io/badge/Pycharm-000000?style=for-the-badge&logo=Pycharm&logoColor=white">
     <img src="https://img.shields.io/badge/visual_Studio_Code-007ACC?style=for-the-badge&logo=visualStudioCode&logoColor=white">
+    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+    <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
 </div>
+
+---
 
 # ERD
 ![Running Mate](https://github.com/ormi3-2-4/Running-mate/assets/37658328/4e2fb501-8682-442d-b6d1-a132ca6eabb8)
