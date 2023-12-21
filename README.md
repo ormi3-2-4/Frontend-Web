@@ -168,12 +168,16 @@ community
 
 - Field name username is not valid for model
 
+원인
+
 django-rest-auth 라이브러리에서는 기본 시리얼라이저가 셋팅되어 있습니다.
 ```sh
 USER_DETAILS_SERIALIZER = 'rest_auth.views.UserDetailsView'
 ```
 커스텀 유저에 username을 email 로 사용하였는데
 기본 시리얼라이저에서 username을 참조하려고 해서 에러가 발생하였습니다.
+
+해결 
 
 다음과 같이 유저 모델을 명시하고 시리얼라이저에 username을 삭제하여 해결하였습니다.
 ```sh
@@ -203,10 +207,13 @@ Django 외에 추가적인 설치사항이 요구됩니다.
 models.DateTimeField에 Admin 페이지에서 생성/ 수정이 불가능한 문제가 발생하였습니다.
 
 원인
-- auto_now, auto_add_now를 추가하면 editable=False 가 기본값이 되어 editable=True로 명시하여도 수정할 수 없게 되었습니다.
+
+auto_now, auto_add_now를 추가하면 editable=False 가 기본값이 되어 editable=True로 명시하여도 수정할 수 없게 되었습니다.
 
 해결
-- auto_now, auto_add_now를 제거하고, 서버측에서 시간을 넣어주는 방향으로 수정하였습니다.
+
+auto_now, auto_add_now를 제거하고, 서버측에서 시간을 넣어주는 방향으로 수정하였습니다.
+
 ---
 ## 회고
 
