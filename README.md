@@ -3,11 +3,19 @@
 - 운동코스를 추천하고 운동용품 정보를 추천하는 커뮤니티
 
 ## 목차
-- [1.요구사항](#요구사항)
-- [2.기술 및 개발환경](#기술-및-개발환경)
+1. [요구사항](#요구사항)
+2. [기술 및 개발환경](#기술-및-개발환경)
+3. [배포](#배포)
+4. [ERD](#erd)
+5. [프로젝트 구조](#프로젝트-구조)
+6. [API 명세서](#api-명세서)
+7. [화면 설계](#화면-설계)
+8. [관련 이슈](#관련-이슈)
+9. [회고](#회고)
 ---
 
 ## 요구사항
+### [Mindmap](https://www.mindmeister.com/app/map/3073937570?t=tdhe0WMmsK)
 - 회원가입, 프로필페이지
 - 운동 시작
   - 목표설정 : 거리, 페이스, 목적지
@@ -58,11 +66,13 @@
 </div>
 
 ---
+## 배포
 
-# ERD
+---
+## ERD
 ![Running Mate](https://github.com/ormi3-2-4/Running-mate/assets/37658328/4e2fb501-8682-442d-b6d1-a132ca6eabb8)
 
-# 프로젝트 구조
+## 프로젝트 구조
 
 ### Backend
 ```
@@ -130,11 +140,27 @@ community
  requirements.txt
  schema.yml
 ```
-# API 명세서
-api/schema/swagger-ui
-api/schema/redoc
+## API 명세서
+|end-point|GET|POST|PATCH|DELETE|Description|
+|---|---|---|---|---|---|
+|user/info|O|---|O|---|사용자 프로필|
+|record|O|O|---|---|운동기록|
+|record/<int:pk>|O|---|---|O|운동기록 상세|
+|record/<int:pk>/finish|---|O|---|---|운동기록 종료|
+|course|O|O|---|---|달리기 코스|
+|course/<int:pk>|O|---|O|O|달리기 코스 상세|
+|recommend|O|O|O|O|운동용품 추천|
+|recommend/<int:pk>|O|---|O|O|운동용품 추천 상세|
+|community|O|O|O|O|운동 공유 커뮤니티|
+|community/<int:pk>|O|---|O|O|운동공유 커뮤니티 상세|
 
-# 화면 설계
+
+---
+## 화면 설계
+---
+## 관련 이슈
+---
+## 회고
 
 https://www.figma.com/file/KuQDyazSTgOMttmP3tneYV/%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84?type=design&node-id=0-1&mode=design&t=pgDemkq1xKR9rZeO-0
 
