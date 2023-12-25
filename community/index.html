@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <script type="module">
+            import { getCommunity } from "/js/community.controller.js";
+            getCommunity();
+        </script>
+        <header
+            class="flex justify-between items-center p-4 border-b border-gray-200">
+            <h1 class="text-lg font-semibold">Community</h1>
+            <button
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Settings
+            </button>
+        </header>
+        <div class="p-4">
+            <div class="relative">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <path d="M6 18h8"></path>
+                    <path d="M3 22h18"></path>
+                    <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                    <path d="M9 14h2"></path>
+                    <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path>
+                    <path
+                        d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg
+                ><input
+                    class="pl-10 pr-4 py-2 w-full border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    placeholder="Search..."
+                    aria-label="Search"
+                    type="text" />
+            </div>
+        </div>
+        <main class="p-4 space-y-4 overflow-y-auto" id="community-list">
+            
+        </main>
+        <footer class="p-4 border-t border-gray-200">
+            <div class="flex justify-between items-center">
+              <div id="count" class="inline-flex items-center rounded-full border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80">
+                3 Items
+              </div>
+            </div>
+          </footer>
+    </body>
+</html>
