@@ -9,8 +9,10 @@
     </head>
     <body>
         <script type="module">
-            import { getCommunityDetail } from "js/community.controller.js";
+            import { getCommunityDetail, addComment } from "./js/community.controller.js";
             getCommunityDetail();
+            const $comment_form = document.querySelector("#comment_form");
+            $comment_form.addEventListener("submit", () => addComment($comment_form));
         </script>
         <!--
 // v0 by Vercel.
@@ -18,7 +20,7 @@
 -->
         <header
             class="flex justify-between items-center p-4 border-b border-gray-200">
-            <h1 class="text-lg font-semibold">Community</h1>
+            <a href="./index.html"><h1 class="text-lg font-semibold">Community</h1></a>
             <button
                 class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                 Settings
@@ -39,6 +41,9 @@
                     <div class="text-gray-500" id="email">example@acme.inc</div>
                 </div>
             </div>
+            <div>
+                <iframe width="100%" height="300px" id="maps"></iframe>
+            </div>
         </header>
         <main class="p-4">
             <div
@@ -58,21 +63,8 @@
                     This is the content of the subject.
                 </div>
             </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm mt-4">
-                <div class="p-4">
-                    <div class="flex items-center gap-4">
-                        <span
-                            class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12"
-                            ><span
-                                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
-                                >JP</span
-                            ></span
-                        >
-                        <div class="grid gap-1 text-sm">
-                            <p class="font-medium" id="">User Name</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm mt-4" id="comment-list">
+                
             </div>
             <div
                 class="rounded-lg border bg-card text-card-foreground shadow-sm mt-4"
@@ -84,8 +76,14 @@
                     </h3>
                 </div>
                 <div class="p-6">
-                    <form class="grid gap-4">
+                    <form class="grid gap-4" id="comment_form">
+                        <input
+                            type="hidden"
+                            name="parent_comment"
+                            value="0"
+                            id="parent_comment" />
                         <textarea
+                            name="comment"
                             class="h-20 p-2 border rounded"
                             aria-label="Add Comment"
                             placeholder="Write your comment here..."></textarea>
