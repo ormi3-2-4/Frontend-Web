@@ -1,1 +1,90 @@
-write
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <script type="module">
+            import {
+                getRecordList, writeCommunity
+            } from "./js/community.controller.js";
+            getRecordList();
+            const $write_form = document.querySelector("#write_form");
+            $write_form.addEventListener("submit", () =>
+                writeCommunity($write_form)
+            );
+        </script>
+        <!--
+// v0 by Vercel.
+// https://v0.dev/t/3gRlBqKyNUe
+-->
+        <header
+            class="flex justify-between items-center p-4 border-b border-gray-200">
+            <a href="./index.html"
+                ><h1 class="text-lg font-semibold">Community</h1></a
+            >
+            <button
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Settings
+            </button>
+        </header>
+        <body>
+            <main class="p-4">
+                <div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm mt-4"
+                    data-v0-t="card">
+                    <div class="flex flex-col space-y-1.5 p-6">
+                        <h3
+                            class="text-2xl font-semibold leading-none tracking-tight">
+                            커뮤니티 글 쓰기
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <form class="space-y-4" id="write_form">
+                            <input
+                                type="hidden"
+                                id="record_id"
+                                name="record"
+                                value="0" />
+                            <div
+                                class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                                data-v0-t="card" id="record-list">
+                                
+                            </div>
+                            <div class="flex flex-col">
+                                <iframe width="100%" height="300px" id="maps" style="display:none;"></iframe>
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="Title" class="font-medium text-sm">
+                                  Title
+                                </label>
+                                <input id="Title" class="border border-gray-200 p-2 rounded" placeholder="제목" type="text" name="title" />
+                              </div>
+                            <div class="flex flex-col">
+                                <label
+                                    for="content"
+                                    class="font-medium text-sm">
+                                    Content
+                                </label>
+                                <textarea
+                                    id="content"
+                                    class="border border-gray-200 p-2 rounded"
+                                    rows="5"
+                                    placeholder="내용"></textarea>
+                            </div>
+                            <button
+                                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                                type="submit">
+                                저장
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </body>
+    </body>
+</html>

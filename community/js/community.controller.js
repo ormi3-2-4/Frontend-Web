@@ -207,7 +207,7 @@ async function getCommunityDetail() {
         document.getElementById("content").innerText = data.content;
         document.getElementById("profile").innerText = data.user.profile_image;
         document.getElementById("nickname").innerText = data.user.nickname;
-        document.getElementById("created_at").innerText = data.created_at;
+        document.getElementById("created_at").innerText = data.created_at.replace("T", " ").slice(0, 19);
         document.getElementById("email").innerText = data.user.email;
 
         createCommentList(data.comments);
@@ -280,7 +280,86 @@ function createComment(comment) {
     return $comment;
 }
 
+export async function getRecordList() {
+    const res = await fetch(`${BASE_URL}/record/?page=${page}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+    });
+    if (res.ok) {
+        const data = await res.json();
+        for (const record of data.results) {
+            const card = createRecordCard(record);
+            document.getElementById("record-list").appendChild(card);
+        }
+        const $pagination = createPagination(data);
+        document.querySelector("#record-list").appendChild($pagination);
+    }
+}
 
+function createRecordCard(record) {
+    const $record = document.createElement("div");
+    $record.classList.add(
+        "flex",
+        "items-center",
+        "gap-4",
+        "p-4",
+        "border-b",
+        "border-gray-200",
+        "justify-between"
+    );
+
+    const $content = document.createElement("div");
+    $content.classList.add("flex", "flex-col", "space-y-1.5", "flex-grow");
+    $content.innerText = record.created_at.replace("T", " ").slice(0, 19);
+
+    const $distance = document.createElement("p");
+    $distance.classList.add("font-medium");
+    $distance.innerText = Number(record.distance) + " km";
+
+    const $record_btn = document.createElement("button");
+    $record_btn.classList.add("bg-red-300", "hover:bg-red-400", "text-gray-800", "font-bold", "py-2", "px-4", "rounded", "inline-flex", "items-center");
+    $record_btn.setAttribute("type", "button");
+    $record_btn.setAttribute("id", record.id);
+    $record_btn.innerText = "Select";
+    $record_btn.addEventListener("click", () => {  
+        const $record_form = document.querySelector("#write_form");
+        $record_form.record.value = record.id;
+        
+        const maps = document.getElementById("maps")
+        maps.style.display = "block";
+        maps.setAttribute("src", BASE_URL+"/record/maps/"+record.id+"/");
+    });
+
+    $record.appendChild($content);
+    $record.appendChild($distance);
+    $record.appendChild($record_btn);
+
+    return $record
+}
+
+export async function writeCommunity(f) {
+    event.preventDefault();
+    const community = {
+        title: f.title.value,
+        content: f.content.value,
+        record: f.record.value,
+    };
+
+    const res = await fetch(`${BASE_URL}/community/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+        body: JSON.stringify(community),
+    });
+    if (res.ok) {
+        location.href = "./index.html";
+    }
+}
 fetch(`${BASE_URL}/user/login/`, {
     method: "POST",
     headers: {
