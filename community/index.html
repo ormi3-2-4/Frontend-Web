@@ -11,14 +11,20 @@
         <script type="module">
             import { getCommunity } from "./js/community.controller.js";
             getCommunity();
+            document.getElementById("search").addEventListener("keyup", (e) => {
+                if (e.key === "Enter" || e.keyCode === 13) {
+                    window.location.href = `./index.html?search=${e.target.value}`;
+                }
+            });
         </script>
         <header
             class="flex justify-between items-center p-4 border-b border-gray-200">
-            <h1 class="text-lg font-semibold">Community</h1>
-            <button
-                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Settings
-            </button>
+            <a href="./index.html"><h1 class="text-lg font-semibold">Community</h1></a>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+            
         </header>
         <div class="p-4">
             <div class="relative">
@@ -41,6 +47,7 @@
                     <path
                         d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg
                 ><input
+                    id="search"
                     class="pl-10 pr-4 py-2 w-full border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                     placeholder="Search..."
                     aria-label="Search"

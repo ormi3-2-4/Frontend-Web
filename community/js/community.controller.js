@@ -3,9 +3,12 @@ import { BASE_URL } from "./common.js";
 const urlSearch = new URLSearchParams(location.search);
 const page = isNaN(urlSearch.get("page")) || !urlSearch.get("page") ? 1 : urlSearch.get("page");
 const id = urlSearch.get("id");
+const search = urlSearch.get("search");
 
 async function getCommunity() {
-    const res = await fetch(`${BASE_URL}/community/?page=${page}`);
+    const params = urlSearch.has("search") ? "&search=" + search : "";
+    document.getElementById("search").value = search;
+    const res = await fetch(`${BASE_URL}/community/?page=${page}${params}`);
     if (res.ok) {
         const data = await res.json();
         for (const community of data.results) {
