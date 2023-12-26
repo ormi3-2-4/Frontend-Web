@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .navbar {
+            text-align: center;
+            color: #fff;
+            position: fixed;
+            font-size: 30px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #0099FA;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 60px; /* navbar의 높이만큼 내려줌 */
+            margin-bottom: 20px;
+        }
+
+        form {
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            margin-bottom: 12px;
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #D9D9D9;
+            border: none;
+        }
+
+        button {
+            background-color: #0099FA;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 60%;
+            margin-top: 15%;
+            box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .signup-link {
+            margin-top: 30px;
+            margin-left: auto;
+        }
+
+        .signup-link a {
+            color: #0099FA;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">Login</div>
+
+    <h1>런닝 메이트</h1>
+
+    <form id="loginForm">
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="input-group">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" required>
+        </div>
+        <button type="button" onclick="login()">로그인</button>
+
+        <div class="signup-link">
+            <a href="#">회원 가입하기</a>
+        </div>
+    </form>
+
+
+    <!-- <div id="result"></div> -->
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            const data = {
+                email: email,
+                password: password
+            };
+        
+            fetch('/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    // 로그인 성공 시 토큰을 로컬 스토리지에 저장
+                    document.getElementById('result').innerHTML = '로그인 되었습니다.';
+                    localStorage.setItem('access_token', data.token.access_token);
+                    // window.location.href = ;
+                } else {
+                    document.getElementById('result').innerHTML = '아이디와 비밀번호를 확인해주세요.';
+                }
+            })
+            .catch(error => {
+                console.error('에러:', error);
+            });
+        });
+    </script>
+</body>
+</html>
