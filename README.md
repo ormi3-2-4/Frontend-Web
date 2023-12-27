@@ -28,7 +28,7 @@
 |GitHub|[jmp7911](https://github.com/jmp7911)|[UkiDelly](https://github.com/UkiDelly)|[gangto33](https://github.com/gangto33)|[hoyonzz](https://github.com/hoyonzz)|
 
 1-2. 협업 방식
-- [코딩컨벤션](위키) : 위키문서 참조
+- [코딩컨벤션](https://github.com/orgs/ormi3-2-4/projects/1?pane=issue&itemId=46984038) : 프로젝트 카드 참조
 - GitHub Flow
 ---
 2. ## 프로젝트 소개
