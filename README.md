@@ -3,42 +3,62 @@
 - 운동코스를 추천하고 운동용품 정보를 추천하는 커뮤니티
 
 ## 목차
-1. [요구사항](#요구사항)
-2. [기술 및 개발환경](#기술-및-개발환경)
-3. [배포](#배포)
-4. [ERD](#erd)
-5. [프로젝트 구조](#프로젝트-구조)
-6. [API 명세서](#api-명세서)
-7. [화면 설계](#화면-설계)
-8. [데모 라이브](#데모-라이브)
-9. [관련 이슈](#관련-이슈)
-10. [회고](#회고)
+1. [팀 소개](#팀-소개)
+2. [프로젝트 소개](#프로젝트-소개)
+3. [WBS](#wbs)
+4. [요구사항](#요구사항)
+5. [기술 및 개발환경](#기술-및-개발환경)
+6. [배포](#배포)
+7. [ERD](#erd)
+8. [프로젝트 구조](#프로젝트-구조)
+9. [API 명세서](#api-명세서)
+10. [화면 설계](#화면-설계)
+11. [데모 라이브](#데모-라이브)
+12. [관련 이슈](#관련-이슈)
+13. [회고](#회고)
+---
+1. ## 팀 소개
+
+1-1. 이스트소프트 백엔드 개발자 양성과정 오르미 3기 
+파이널프로젝트 팀 런닝메이트 입니다.
+
+|팀 원|박지만|송대현|김강토|신호용|
+|---|---|---|---|---|
+|역할|Backend - 운동기록<br> Frontend - 커뮤니티|Backend - 운동 코스 <br> Frontend - 운동 기록 앱 <br> CI / CD|Backend - 커뮤니티, 운동용품 추천 <br> Frontend - 로그인|Backend - 회원 <br> 배포|
+|GitHub|[jmp7911](https://github.com/jmp7911)|[UkiDelly](https://github.com/UkiDelly)|[gangto33](https://github.com/gangto33)|[hoyonzz](https://github.com/hoyonzz)|
+
+1-2. 협업 방식
+- [코딩컨벤션](위키) : 위키문서 참조
+- GitHub Flow
+---
+2. ## 프로젝트 소개
+
+2-1. 목적
+- 달리기,자전거 등의 운동으로 지역 네트워크를 연결하는 프로젝트 입니다.
+
+2-2. 주요 기능
+- GPS를 활용하여 달리기, 자전거 등 운동을 기록합니다.
+- 운동기록을 분석하여 제공합니다.
+- 운동기록을 공유하거나 코스를 추천할 수 있습니다.
+- 운동용품 정보를 공유합니다.
+
+---
+3. ## WBS
+
+![WBS](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/baa3660a-5206-4ee4-9096-cb6c3e262c58)
+
+---
+4. ## 요구사항
+
+|회원|운동 기록|커뮤니티|
+|---|---|---|
+|![user](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/cb473ad5-23cf-4fcf-8029-e86c818c8749)|![record](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/6adf248b-275e-43f5-bee9-e31fcb78dae9)|![community](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/c323677a-0c77-4111-8785-a649c981f3e7)|
+|운동용품 추천|운동 코스||
+|![recommend](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/3250373c-809b-4b70-816a-fe2edf4c1460)|![course](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/d1cc3ef1-1ab8-4bfe-bc2a-ab045c692a01)||
+
 ---
 
-## 요구사항
-### [Mindmap](https://www.mindmeister.com/app/map/3073937570?t=tdhe0WMmsK)
-- 회원가입, 프로필페이지
-- 운동 시작
-  - 목표설정 : 거리, 페이스, 목적지
-- 운동 기록 (실시간)
-  - 지도에 내 위치 표시
-  - 운동 진행 시간 표시
-  - 현재 페이스
-  - 인증샷
-- 운동 기록지
-  - 운동 데이터 통계 (거리, 시간, 페이스)
-  - 지도에 내가 달린 거리 표시
-- 운동 History (list)
-- 커뮤니티
-  - 운동기록 공유
-- 운동용품 추천 게시판
-  - 카테고리
-- 달리기 코스
-  - 코스 추천 작성
-
----
-
-## 기술 및 개발환경
+5. ## 기술 및 개발환경
 ### Backend
 <div>
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
@@ -52,6 +72,7 @@
     <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=Flutter&logoColor=white">
     <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=Leaflet&logoColor=white">
 </div>
+
 
 ### Cloud
 <div>
@@ -67,13 +88,17 @@
 </div>
 
 ---
-## 배포
+6. ## 배포
+
+![gunicorn](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/ddde3751-f8de-4f5b-8dd5-12f24aec6c9e)
 
 ---
-## ERD
+7. ## ERD
 ![Running Mate](https://github.com/ormi3-2-4/Running-mate/assets/37658328/4e2fb501-8682-442d-b6d1-a132ca6eabb8)
 
-## 프로젝트 구조
+---
+
+8. ## 프로젝트 구조
 
 ### Backend
 ```
@@ -159,8 +184,21 @@ community
 [swagger URL]()
 
 ---
-## 화면 설계
+9. ## 화면 설계
 - [Link](https://www.figma.com/file/KuQDyazSTgOMttmP3tneYV/%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84?type=design&node-id=0-1&mode=design&t=pgDemkq1xKR9rZeO-0)
+
+9-1. Mobile Application
+|로그인|회원 가입|메인 화면|
+|---|---|---|
+|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/743e91e6-9b35-4e2b-acd0-b351ad363937)|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/7ab036e2-cac6-4b8c-a646-6a51ba1c0c5e)|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/fa5b95a5-20e6-46f4-9e60-b37ad600c816)|
+|운동 기록|히스토리|히스토리 상세|
+|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/696f8702-c6f3-4f7c-ba8d-339ac2a99a39)|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/7ac6981c-a92d-4f22-acc4-f82c8f01561d)|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/b667f514-a220-4ccf-ab1f-ec45d0f16c07)|
+
+9-2. Web Application
+|커뮤니티|글 쓰기|글 상세|
+|---|---|---|
+|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/f95051b2-01af-4777-a28c-e5e6ecdff262)|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/c628d83a-9ead-4d17-aded-67d80936f65a)|![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/6b65e3e8-02ac-461e-90e3-fc7dc4977529)|
+
 ---
 ## 데모 라이브
 ---
