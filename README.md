@@ -92,6 +92,8 @@
 
 ![gunicorn](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/ddde3751-f8de-4f5b-8dd5-12f24aec6c9e)
 
+![image](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/e0cbb428-3795-41d0-8394-f6e7404e0cdf)
+
 ---
 7. ## ERD
 ![Running Mate](https://github.com/ormi3-2-4/Running-mate/assets/37658328/4e2fb501-8682-442d-b6d1-a132ca6eabb8)
@@ -181,7 +183,7 @@ community
 |community|O|O|O|O|운동 공유 커뮤니티|
 |community/<int:pk>|O|---|O|O|운동공유 커뮤니티 상세|
 
-[swagger URL]()
+[swagger URL](http://running-mate.kro.kr/api/schema/swagger-ui/)
 
 ---
 10. ## 화면 설계
