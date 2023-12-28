@@ -1,0 +1,31 @@
+name: UI Deployment
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone https://github.com/ormi3-2-4/Frontend-Web
+        uses: actions/checkout@v2
+
+      - name: Connect to AWS Lightsail, extract file and delete the file
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.LIGTHSAIL_IP }}
+          username: ${{ secrets.LIGTHSAIL_USERNAME }}
+          key: ${{ secrets.LIGTHSAIL_KEY }}
+          password: ${{ secrets.LIGTHSAIL_PASSWORD }}
+          port: 22
+          script: |
+            # 이동
+            cd ${{ secrets.LIGHTSAIL_ROOT_DIR}}/
+
+            #Git Update
+            git pull
+
+      - name: Deployment completed Successfully
+        run: echo "Deployment completed successfuly"
