@@ -70,13 +70,15 @@
 ### Frontend
 <div>
     <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=Flutter&logoColor=white">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
     <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=Leaflet&logoColor=white">
 </div>
 
 
 ### Cloud
 <div>
-    <img src="https://img.shields.io/badge/Amazone_S3-569A31?style=for-the-badge&logo=AmazoneS3&logoColor=white">
+    <img src="https://img.shields.io/badge/Amazone_LightSail-569A31?style=for-the-badge&logo=Amazon&logoColor=white">
 </div>
 
 ### IDE & Cooperation
@@ -89,6 +91,12 @@
 
 ---
 6. ## 배포
+
+- 모바일 : [안드로이드](https://drive.google.com/file/d/1Jq1NFXwTxuaPCt5_OMZaVGTYFBCv_bnL/view?usp=drive_link)
+
+- 웹 어플리케이션 : [m.running-mate.kro.kr](http://m.running-mate.kro.kr)
+
+- 백엔드 : [running-mate.kro.kr](http://m.running-mate.kro.kr)
 
 ![gunicorn](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/ddde3751-f8de-4f5b-8dd5-12f24aec6c9e)
 
@@ -187,7 +195,7 @@ community
 
 ---
 10. ## 화면 설계
-- [Link](https://www.figma.com/file/KuQDyazSTgOMttmP3tneYV/%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84?type=design&node-id=0-1&mode=design&t=pgDemkq1xKR9rZeO-0)
+- [Figma](https://www.figma.com/file/KuQDyazSTgOMttmP3tneYV/%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84?type=design&node-id=0-1&mode=design&t=pgDemkq1xKR9rZeO-0)
 
 10-1. Mobile Application
 |로그인|회원 가입|메인 화면|
