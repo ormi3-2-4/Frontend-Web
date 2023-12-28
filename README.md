@@ -203,6 +203,19 @@ community
 
 ---
 11. ## 데모 라이브
+
+- 모바일 (안드로이드)
+
+[![mobile](https://img.youtube.com/vi/N-0c5iZS3Ks/hqdefault.jpg)](https://youtube.com/shorts/N-0c5iZS3Ks?si=XY04Ev00SdHl1Ehw)
+
+- 웹 어플리케이션
+
+|로그인|회원가입|
+|---|---|
+|![login](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/3b141cd1-84cd-40ae-9366-f2c52281f644)|![register](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/9f98144b-ac12-4f8b-9d93-664b178e531f)|
+|글 쓰기|댓글 쓰기|
+|![write](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/7dfbd4b5-0dc9-49b3-9231-309f4cd2bcb0)|![comment](https://github.com/ormi3-2-4/Frontend-Web/assets/37658328/d887bf98-c4f5-4345-8b0f-a489a6c3bb0f)|
+
 ---
 12. ## 관련 이슈
 
