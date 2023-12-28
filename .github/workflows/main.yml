@@ -29,5 +29,7 @@ jobs:
             #Git Update
             git pull origin main
 
+            #nginx restart
+            sudo systemctl restart nginx
       - name: Deployment completed Successfully
         run: echo "Deployment completed successfuly"
