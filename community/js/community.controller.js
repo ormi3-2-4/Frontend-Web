@@ -1,4 +1,4 @@
-import { BASE_URL } from "./common.js";
+import { BASE_URL, securedApiRequest } from "../../js/common.js";
 
 const urlSearch = new URLSearchParams(location.search);
 const page = isNaN(urlSearch.get("page")) || !urlSearch.get("page") ? 1 : urlSearch.get("page");
@@ -8,17 +8,16 @@ const search = urlSearch.get("search");
 async function getCommunity() {
     const params = urlSearch.has("search") ? "&search=" + search : "";
     document.getElementById("search").value = search;
-    const res = await fetch(`${BASE_URL}/community/?page=${page}${params}`);
-    if (res.ok) {
-        const data = await res.json();
-        for (const community of data.results) {
-            const card = createCommunityCard(community);
-            document.getElementById("community-list").appendChild(card);
-        }
-        const $pagination = createPagination(data);
-        document.querySelector("footer").appendChild($pagination);
-        document.getElementById("count").innerText = data.count + " items";
+    const data = await securedApiRequest(`/community/?page=${page}${params}`, "GET");
+    
+    for (const community of data.results) {
+        const card = createCommunityCard(community);
+        document.getElementById("community-list").appendChild(card);
     }
+    const $pagination = createPagination(data);
+    document.querySelector("footer").appendChild($pagination);
+    document.getElementById("count").innerText = data.count + " items";
+
 }
 
 function createCommunityCard(community) {
@@ -202,21 +201,19 @@ function createPagination(data) {
 
 async function getCommunityDetail() {
     if (!id) return;
-    const res = await fetch(`${BASE_URL}/community/${id}/`);
-    if (res.ok) {
-        const data = await res.json();
+    const data = await securedApiRequest(`/community/${id}/`, "GET");
+    
+    document.getElementById("title").innerText = data.title;
+    document.getElementById("content").innerText = data.content;
+    document.getElementById("profile").innerText = data.user.profile_image;
+    document.getElementById("nickname").innerText = data.user.nickname;
+    document.getElementById("created_at").innerText = data.created_at.replace("T", " ").slice(0, 19);
+    document.getElementById("email").innerText = data.user.email;
 
-        document.getElementById("title").innerText = data.title;
-        document.getElementById("content").innerText = data.content;
-        document.getElementById("profile").innerText = data.user.profile_image;
-        document.getElementById("nickname").innerText = data.user.nickname;
-        document.getElementById("created_at").innerText = data.created_at.replace("T", " ").slice(0, 19);
-        document.getElementById("email").innerText = data.user.email;
+    createCommentList(data.comments);
 
-        createCommentList(data.comments);
+    document.getElementById("maps").setAttribute("src", BASE_URL+"/record/maps/"+data.record.id+"/");
 
-        document.getElementById("maps").setAttribute("src", BASE_URL+"/record/maps/"+data.record.id+"/");
-    }
 }
 
 
@@ -226,7 +223,7 @@ export function addComment(f) {
     const comment = { content: comment_text };
     comment.community = id;
     if (f.comment_id) comment.comment_parent = f.comment_id.value;
-
+    
     fetch(`${BASE_URL}/community/comment/`, {
         method: "POST",
         headers: {
@@ -350,7 +347,7 @@ export async function writeCommunity(f) {
         content: f.content.value,
         record: f.record.value,
     };
-
+    
     const res = await fetch(`${BASE_URL}/community/`, {
         method: "POST",
         headers: {
@@ -363,25 +360,5 @@ export async function writeCommunity(f) {
         location.href = "./index.html";
     }
 }
-fetch(`${BASE_URL}/user/login/`, {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email: "jmp7911@gmail.com", password: "1234" }),
-})
-    .then((response) => response.json())
-    .then((data) => {
-        if (data.token) {
-            // 로그인 성공 시 토큰을 로컬 스토리지에 저장
-            localStorage.setItem("access_token", data.token.access_token);
-            // window.location.href = ;
-        } else {
-            console.error("로그인 실패:", data);
-        }
-    })
-    .catch((error) => {
-        console.error("에러:", error);
-    });
 
 export { getCommunity, getCommunityDetail };

@@ -104,17 +104,17 @@
             <label for="password">비밀번호</label>
             <input type="password" id="password" required>
         </div>
-        <button type="button" onclick="login()">로그인</button>
+        <button type="submit">로그인</button>
 
         <div class="signup-link">
-            <a href="#">회원 가입하기</a>
+            <a href="register.html">회원 가입하기</a>
         </div>
     </form>
 
 
-    <!-- <div id="result"></div> -->
 
-    <script>
+    <script type="module">
+        import { BASE_URL } from '../js/common.js';
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
@@ -125,7 +125,7 @@
                 password: password
             };
         
-            fetch('/login/', {
+            fetch(BASE_URL + '/user/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -136,11 +136,13 @@
             .then(data => {
                 if (data.token) {
                     // 로그인 성공 시 토큰을 로컬 스토리지에 저장
-                    document.getElementById('result').innerHTML = '로그인 되었습니다.';
+                    alert('로그인 되었습니다.');
                     localStorage.setItem('access_token', data.token.access_token);
-                    // window.location.href = ;
+                    localStorage.setItem('refresh_token', data.token.refresh_token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    window.location.href = '/community';
                 } else {
-                    document.getElementById('result').innerHTML = '아이디와 비밀번호를 확인해주세요.';
+                    alert('아이디와 비밀번호를 확인해주세요.');
                 }
             })
             .catch(error => {
